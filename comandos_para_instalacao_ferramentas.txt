@@ -1,0 +1,68 @@
+CURSO AVANÇADO DE ANGULAR MASTER DETAIL
+
+AULA 5 - Baixando as dependencias do projeto
+
+* criação do projeto:  
+ng new finansys
+
+* instalação do bootstrap e jquery: 
+npm i bootstrap jquery --save
+
+* imask - mascaras diversas
+npm install angular-imask
+
+* currency formatter - conversao de valores
+npm i currency-formatter --save
+
+* moment - manipulacao de datas
+npm install moment --save
+
+* toastr - mostra mensagens bonitas na tela
+npm i toastr --save
+
+* primeng - primefaces para angular
+npm install primeng --save
+npm install primeicons --save
+
+* chart.js - componente de graficos
+npm install chart.js --save
+
+* in-memory-web-api - API fake do back end
+npm i --save angular-in-memory-web-api 
+------------------------------------------------------
+
+*** deu pau no git ao tentar sincronizar o git local com o repositorio criado
+diretamente no github. Foi consertado com o comando:
+
+git pull --allow-unrelated-histories
+------------------------------------------------------
+AULA 9 - Criando modulo de categorias
+
+ng g m pages/categories --routing
+
+ng g c pages/categories/category-list
+
+ng g c pages/categories/category-form
+
+MASTER = category-list
+DETAIL = category-form
+
+* Em app-routing.module.ts, adicionou a rota:
+
+const routes: Routes = [
+	{path: 'categories', loadChildren: './pages/categories/categories.module#CategoriesModule}
+];
+
+* Em categories-routing.module.ts, adicionou as rotas:
+
+const routes: Routes = [
+
+{path: '', component: CategoryListComponent},
+{path: 'new', component: CategoryFormComponent}
+{path: ':id/edit', component: CategoryFormComponent}
+
+];
+--------------------------------------------------------
+
+AULA 10 - Adicionando barra de navegacao
+
