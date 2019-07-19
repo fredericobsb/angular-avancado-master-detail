@@ -66,3 +66,90 @@ const routes: Routes = [
 
 AULA 10 - Adicionando barra de navegacao
 
+--------------------------------------------------------
+
+AULA 11 - Implementando o template category-list
+
+Criou o template aplicando css no "category-list.component.html
+--------------------------------------------------------
+
+AULA 12 - Adicionando 'in-memory-web-api' p/ categorias
+
+Na pasta app/pages, crie o arquivo in-memory-database.ts
+---------------------------------------------------------
+
+AULA 13 - Adicionando o model 'Category'
+
+criou a pasta 'shared' e dentro dela o 'category.model.ts'.
+---------------------------------------------------------
+
+AULA 14 - Adicionando o servico CategoryService
+
+ng g s  pages/categories/shared/category  -> criou o servico CategoryService.ts
+
+Criou o servico CategoryService.ts que contem as 4 operacoes do crud.
+----------------------------------------------------------
+
+AULA 15 - Ativando o interceptador HTTP do AngularinMemoryWebAPI
+
+Tem que avisar o angular que é pra fazer a busca na memoria, e nao
+numa API real.
+
+Em app.module.ts, importou o angular...memoryWebAPI.
+
+app.module.ts:
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    /*
+    Interceptacao para as requisicoes http serem feitas com o banco em memoria.
+    quando for usar api real, comentar ou apagar o arquivo "InMemoryDatabase".
+    */
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDatabase)
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+--------------------------------------------------------
+
+AULA 16 - Concluindo a implementacao do CategoryList
+
+Criou os metodos do service no component e ajustou na tela.
+
+AULA 17 - Implementando o template do componente CategoryFormComponent}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
