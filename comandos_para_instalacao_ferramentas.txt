@@ -124,7 +124,27 @@ Criou os metodos do service no component e ajustou na tela.
 
 AULA 17 - Implementando o template do componente CategoryFormComponent}
 
+AULA 18 - Implementando a base da classe CategoryForm
 
+	* codificou toda a classe category-form.component.ts
+	
+	* Em categories.module.ts, importe:
+	
+		import {ReactiveFormsModule} from '@angular/forms';
+	
+	* E nos imports do ngmodule, insira: ReactiveFormsModule.
+
+	* Em category-form.component.html, na tag "form", antes de
+	"Informacoes sobre a categoria", insira:
+
+	[formGroup] = "categoryForm"
+	
+-----------------------------------------------------------------------
+
+AULA 19 - Concluindo Categoryform
+
+- criou metodo submitForm() em category-form.component.ts
+- criou actionForSuccess(), updateCategory(), createCategory(), actionsForError()
 
 
 
