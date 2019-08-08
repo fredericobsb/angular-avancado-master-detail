@@ -145,12 +145,52 @@ AULA 19 - Concluindo Categoryform
 
 - criou metodo submitForm() em category-form.component.ts
 - criou actionForSuccess(), updateCategory(), createCategory(), actionsForError()
+----------------------------------------------------------------------------------------------------
+AULA 21 - Adicionando o modulo de receitas e despesas
 
 
+- criou folder entries/shared/
+- criou arquivo entry.model.ts
+---------------------------------------------------------------------------------------------------
+AULA 22 - Adicionando a lista receitas e despesas
 
+- copiou a pasta category-list de pages/categories para entries. Renomeou-a para entry-list.
 
+substituicoes:
+	- Category -> Entry
+	- categories -> entries
+	- category -> entry
 
+- colocou o array de entries no arquivo in-memory-database.ts:
 
+private jsonDataToEntries(jsonData: any[]): Entry[]{
+	console.log(jsonData[0] as Entry);
+	console.log(Object.assign(new Entry(), jsonData[0]));
+	
+	const entries: Entry[] = [];
+	
+	jsonData.foreach(element => {
+		const entry = Object.assign(new Entry(), element);
+		entries.push(entry);
+	});
+	return entries;
+}
+
+O método acima transforma um objeto Object em um objeto Entry.
+Assim, dá para ler o metodo paidText() na classe EntryModel.
+------------------------------------------------------------------------------------------------------------
+
+AULA 23 - Adicionando o formulario de receitas e despesas
+
+- copiou a pasta category/category-form para a pasta entries.
+- renomeou os arquivos de 'category' para 'entry'.
+- Trocou os nomes de tudo que tinha Category, category, categories, categories, para, respectivamente, Entry, entry, etc...
+- em entries.modules.ts, adicionou 'EntryFormComponent' em declarations.
+
+- Em entry.form.component.ts, aplicou col-md-9 e col-md-3, para o titulo da pagina e o botao de voltar.
+-------------------------------------------------------------------------------------------------------------
+
+proxima = AULA 24 - Melhorando o EntryForm
 
 
 

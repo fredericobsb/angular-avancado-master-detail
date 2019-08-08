@@ -1,1 +1,1 @@
-proximo = 19 - concluindo CategoryForm
+proxima = AULA 24 - Melhorando o EntryForm
