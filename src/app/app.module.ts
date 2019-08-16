@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import {InMemoryDatabase} from "./pages/in-memory-database";
 import { HttpClientModule } from '@angular/common/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { HttpClientModule } from '@angular/common/http';
     Interceptacao para as requisicoes http serem feitas com o banco em memoria.
     quando for usar api real, comentar ou apagar o arquivo "InMemoryDatabase".
     */
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDatabase)
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDatabase),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
