@@ -190,7 +190,23 @@ AULA 23 - Adicionando o formulario de receitas e despesas
 - Em entry.form.component.ts, aplicou col-md-9 e col-md-3, para o titulo da pagina e o botao de voltar.
 -------------------------------------------------------------------------------------------------------------
 
-proxima = AULA 24 - Melhorando o EntryForm
+AULA 24 - Melhorando o EntryForm
+
+- No arquivo entries.module.ts, adicionou: 
+
+import {CalendarMOdule} from "primeng/calendar"
+import {IMaskModule} from "angular/imask"
+
+- Ainda no arquivo entreies.module.ts, em @NgModule, acrescentou:
+	CalendarMOdule
+	ImaskModule
+	
+AULA 26 - MELHORANDO O ENTRYfORM - CONFIGURANDO CAMPO VALOR
+
+a partir daqui o controle vai so nos commits p/ acelerar 
+o tempo de desenvolvimento.
+	
+
 
 
 

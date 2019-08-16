@@ -20,6 +20,14 @@ export class EntryFormComponent implements OnInit, AfterContentChecked {
   serverErrorMessages: string[] = null;
   submittingForm: boolean = false;
   entry: Entry = new Entry();
+  imaskConfig = {
+    mask: Number,
+    scale: 2,//quantidade de casas apos a virgula
+    thousandsSeparator: '',
+    padFractionalZeros: true,//se a pessoa digitar 20, ele completará com 20.00
+    normalizeZeros: true,
+    radix: ','//separador de decimais
+  }
 
   constructor(
     private entryService: EntryService,
