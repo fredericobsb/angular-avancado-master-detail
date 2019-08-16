@@ -1,1 +1,1 @@
-proxima = AULA 24 - Melhorando o EntryForm
+proxima = AULA 28 - Melhorando o EntryForm - configurando campo pago
