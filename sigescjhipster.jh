@@ -1,0 +1,59 @@
+entity Empresa {
+	id Integer,
+	cnpj Long,
+	nome String,
+	razaoSocial String,
+    email String,
+    ativo Boolean,
+    endereco Endereco,
+    telefone String,
+    responsavel Pessoa,
+    socioDirigente Pessoa
+}
+
+entity Endereco{
+    cep String,
+    logradouro String,
+    bairro String,
+    cidade String,
+    estado Estado, 
+    numero String,
+    complemento String
+}
+
+entity Estado{
+	id Long,
+    uf String
+}
+
+entity Pessoa{
+	id Integer,
+    nome String,
+    cpf String,
+    idade Integer,
+    dataNascimento Date,
+    numeroRegistroCnh String,
+    categoriaCnh String,
+    dataValidadeCnh Date,
+    email String,
+    dataValidadeExameToxicologico Date,
+    observacoes String,
+    cursos String
+    
+}
+
+relationship OneToOne {
+	Empresa{endereco} to Endereco
+}
+
+relationship OneToOne {
+	Endereco{estado} to Estado
+}
+
+relationship OneToOne {
+	Empresa{responsavel} to Pessoa
+}
+
+relationship ManyToOne {
+	Pessoa{socioDirigente} to Empresa
+}
