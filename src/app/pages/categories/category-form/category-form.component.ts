@@ -35,7 +35,7 @@ export class CategoryFormComponent implements OnInit, AfterContentChecked {
   }
 
   ngAfterContentChecked(){
-
+    this.setPageTitle();
   }
 
   submitForm(){
@@ -112,6 +112,8 @@ export class CategoryFormComponent implements OnInit, AfterContentChecked {
 
   private actionForSuccess(category:Category){
       toastr.success("Solicitacao efetuada com sucesso!");
+      //redirect /reload component page
+      //skipLocationChange => é para a aplicacao nao guardar no historico essa navegacao.
       this.router.navigateByUrl("categories", {skipLocationChange:true}).then(
           () => this.router.navigate(["categories", category.id, "edit"])
       )
@@ -120,6 +122,7 @@ export class CategoryFormComponent implements OnInit, AfterContentChecked {
   private actionsForError(error){
     toastr.error("Ocorreu um erro ao processar sua solicitação");
     this.submittingForm = false;
+    //Erro 422 => Não conseguiu processar a entidade
     if(error.status === 422)
       this.serverErrorMessages = JSON.parse(error._body).erros;
     else

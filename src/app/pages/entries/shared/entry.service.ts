@@ -57,6 +57,7 @@ export class EntryService {
   private jsonDataToEntries(jsonData: any[]): Entry[]{
       const entries: Entry[] = [];
       jsonData.forEach(element => {
+        //Ao inves de ser "proto", Cria um objeto do tipo Entry.
         const entry = Object.assign(new Entry(), element);
         entries.push(entry);
       });

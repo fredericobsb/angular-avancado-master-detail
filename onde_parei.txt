@@ -1,3 +1,1 @@
-proxima = AULA 28 - Melhorando o EntryForm - configurando campo pago
-
-revendo aula 24, aos 3 minutos, para achar o erro na edicao de entry, em 09/11.
+proxima = 32 - Melhorando o EntryForm - configurando o campo Pago.
