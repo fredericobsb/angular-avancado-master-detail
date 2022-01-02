@@ -24,7 +24,7 @@
             <th>Lançamento</th>
             <th>Categoria</th>
             <th class="text-right">Valor R$</th>
-            <th>Ações</th>
+            <th class="text-center">Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -47,7 +47,7 @@
                 <span class="badge badge-light">{{entry.paidText}}</span>
             </td>
 
-            <td>
+            <td class="text-center">
                 <a [routerLink]="[entry.id, 'edit']" class="btn btn-outline-info btn-sm mr-2">Editar</a>
                 <button (click)="deleteEntry(entry)" class="btn btn-outline-danger btn-sm">Exluir</button>
             </td>
