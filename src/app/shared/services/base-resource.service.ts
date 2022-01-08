@@ -2,14 +2,16 @@ import { BaseResourceModel } from "../models/base-resource.model";
 import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError} from "rxjs/operators";
+import { Injector } from "@angular/core";
 
 export abstract class BaseResourceService<T extends BaseResourceModel>{
 
     protected http: HttpClient;
-    
-    constructor(protected apiPath: string){
 
+    constructor(protected apiPath: string, protected injector: Injector){
+        this.http = injector.get(HttpClient);
     }
+    
     getAll(): Observable<T[]>{
         //o pipe é para tratar o retorno
         return this.http.get(this.apiPath).pipe(
