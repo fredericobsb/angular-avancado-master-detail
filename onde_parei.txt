@@ -1,1 +1,1 @@
-proxima = 32 - Melhorando o EntryForm - configurando o campo Pago.
+proxima = 52 - refatorando formulario de categoria.
