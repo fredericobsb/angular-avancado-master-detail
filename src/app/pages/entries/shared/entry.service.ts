@@ -47,7 +47,7 @@ export class EntryService extends BaseResourceService<Entry>{
       const entries: Entry[] = [];
       jsonData.forEach(element => {
         //Ao inves de ser "proto", Cria um objeto do tipo Entry.
-        const entry = Object.assign(new Entry(), element);
+        const entry = Entry.fromJson(element);
         entries.push(entry);
       });
      return entries;
@@ -55,7 +55,7 @@ export class EntryService extends BaseResourceService<Entry>{
 
   
   protected jsonDataToResource(jsonData: any): Entry{
-    return Object.assign(new Entry(), jsonData);
+    return  Entry.fromJson(jsonData);
   }
   
 }

@@ -11,7 +11,7 @@ export abstract class BaseResourceService<T extends BaseResourceModel>{
     constructor(protected apiPath: string, protected injector: Injector){
         this.http = injector.get(HttpClient);
     }
-    
+
     getAll(): Observable<T[]>{
         //o pipe é para tratar o retorno
         return this.http.get(this.apiPath).pipe(
@@ -58,12 +58,12 @@ export abstract class BaseResourceService<T extends BaseResourceModel>{
         return resources;
     }
 
+    protected jsonDataToResource(jsonData: any): T{
+        return jsonData as T;
+    }
+    
     protected handleError(error: any): Observable<any>{
         console.log("DEU PAU NA REQUISICAO => ", error);
         return throwError(error);
-    }
-
-    protected jsonDataToResource(jsonData: any): T{
-        return jsonData as T;
     }
 }
