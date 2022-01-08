@@ -11,9 +11,15 @@ import { BaseResourceService } from 'src/app/shared/services/base-resource.servi
 })
 export class EntryService extends BaseResourceService<Entry>{
 
+  /*
+    Passar o nome da função sem ( ) não executa a função, apenas diz que essa função
+    deverá ser executada quando for solicitado: Entry.fromJson.
+
+    Entry.fromJson -> converte um json em um objeto Entry.
+  */
   constructor(protected injector: Injector, 
               private categoryService: CategoryService) { 
-                super("api/entries", injector);
+                super("api/entries", injector, Entry.fromJson);
               }
 
   /*
@@ -40,22 +46,4 @@ export class EntryService extends BaseResourceService<Entry>{
       })
     )
   }
-
- 
-  //metodos privados
-  protected jsonDataResources(jsonData: any[]): Entry[]{
-      const entries: Entry[] = [];
-      jsonData.forEach(element => {
-        //Ao inves de ser "proto", Cria um objeto do tipo Entry.
-        const entry = Entry.fromJson(element);
-        entries.push(entry);
-      });
-     return entries;
-  }
-
-  
-  protected jsonDataToResource(jsonData: any): Entry{
-    return  Entry.fromJson(jsonData);
-  }
-  
 }
