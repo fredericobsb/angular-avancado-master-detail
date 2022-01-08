@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { map, catchError, flatMap} from "rxjs/operators";
 import { Entry } from './entry.model';
+import { CategoryService } from '../../categories/shared/category.service';
 
 
 @Injectable({
@@ -12,7 +13,8 @@ export class EntryService {
 
   private apiPath: string = "api/entries";
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, 
+              private categoryService: CategoryService) { }
 
   getAll(): Observable<Entry[]>{
     //o pipe é para tratar o retorno
@@ -30,18 +32,35 @@ export class EntryService {
       )
   }
 
-  create(Entry: Entry): Observable<Entry>{
-    return this.http.post(this.apiPath, Entry).pipe(
-      catchError(this.handleError),
-      map(this.jsonDataToEntry)
+  /*
+     FLAT MAP -> Usado aqui para achatar 2 Observables num só. 
+     Se usar API externa, ao inves do in-memory-database.ts, não precisa usar o flat map.
+  */
+  create(entry: Entry): Observable<Entry>{
+    return this.categoryService.getById(entry.categoryId).pipe(
+      flatMap(category => {
+        entry.category = category;
+
+        return this.http.post(this.apiPath, entry).pipe(
+          catchError(this.handleError),
+          map(this.jsonDataToEntry)
+        )
+      })
     )
   }
 
-  update(Entry: Entry): Observable<Entry>{
-    const url = `${this.apiPath}/${Entry.id}`;
-    return this.http.put(url, Entry).pipe(
-      catchError(this.handleError),
-      map(() => Entry)
+  update(entry: Entry): Observable<Entry>{
+    const url = `${this.apiPath}/${entry.id}`;
+
+    return this.categoryService.getById(entry.categoryId).pipe(
+      flatMap(category => {
+        entry.category = category;
+
+        return this.http.put(url, entry).pipe(
+          catchError(this.handleError),
+          map(() => entry)
+        )
+      })
     )
   }
 
