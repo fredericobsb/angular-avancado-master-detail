@@ -5,9 +5,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDatabase } from '../pages/in-memory-database';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
-  declarations: [],
+  declarations: [NavbarComponent], //sera carregado apenas 1 vez.
   imports: [
     CommonModule,
     BrowserAnimationsModule,
@@ -18,11 +20,13 @@ import { InMemoryDatabase } from '../pages/in-memory-database';
     quando for usar api real, comentar ou apagar o arquivo "InMemoryDatabase".
     */
     HttpClientInMemoryWebApiModule.forRoot(InMemoryDatabase),
+    RouterModule
   ],
   exports: [ //disponibilizando para app.module.ts
     BrowserAnimationsModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    NavbarComponent
   ]
 })
 export class CoreModule { }
