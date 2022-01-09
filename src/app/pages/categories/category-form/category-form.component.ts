@@ -1,10 +1,7 @@
-import { Component, OnInit, AfterContentChecked, Injector } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {ActivatedRoute, Router} from '@angular/router';
+import { Component, Injector } from '@angular/core';
+import {Validators} from '@angular/forms';
 import {Category} from '../shared/category.model';
 import {CategoryService} from '../shared/category.service';
-import {switchMap} from 'rxjs/operators';
-import toastr from "toastr";
 import { BaseResourceFormComponent } from 'src/app/shared/components/base-resource-form/base-resource-form.component';
 
 
