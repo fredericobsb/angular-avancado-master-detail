@@ -1,1 +1,1 @@
-proxima = 52 - refatorando formulario de categoria.
+proxima = 59 aos 5min 30 segundos - extraindo component form field error
